@@ -34,6 +34,64 @@ interface CropConditionProfile {
 
 export const SUPPORTED_PROFILES: CropConditionProfile[] = [
   {
+    crop: 'Maize',
+    condition: 'Fall Armyworm',
+    scientific_name: 'Spodoptera frugiperda',
+    status: 'Early Signs',
+    base_severity: 52.8,
+    advisory: {
+      en: {
+        symptoms: 'Aggressive foliar feeding, ragged pinholes in leaf whorls, and visible dark frass accumulation inside whorl central funnels.',
+        what_it_means: 'Noctuid caterpillar larvae feeding heavily inside maize leaf whorls, consuming developing tassel and leaf tissues.',
+        what_to_do_now: 'Manually crush larvae in early stages or apply targeted botanical/microbial sand formulation into leaf whorls immediately.',
+        prevention_guidance: 'Plant early-maturing maize hybrids, intercrop with cowpea or desmodium, and set up pheromone monitoring traps @ 5/acre.',
+        when_to_seek_expert: 'When >10% of young whorls exhibit fresh feeding damage or caterpillar density exceeds threshold.',
+        organic: 'Apply Bacillus thuringiensis (Bt) @ 2g/L or Metarhizium anisopliae into leaf whorls.',
+        chemical: 'Emamectin benzoate 5% SG @ 0.4g/L or Spinetoram 11.7% SC @ 0.5ml/L directed into leaf funnels.',
+        cultural: 'Apply clean dry sand or neem cake mixed with ash into central leaf whorls.'
+      },
+      ta: {
+        symptoms: 'இலைச் சுருள்களில் துளைகள், ஒழுங்கற்ற கடித்த அடையாளங்கள் மற்றும் கழிவுப் பொருட்கள் (frass) காணப்படுதல்.',
+        what_it_means: 'படைப்புழுக்கள் சோள குருத்து இலைகளை தின்று பயிரின் வளர்ச்சியை கடுமையாக பாதிக்கும் பூச்சி தாக்குதல்.',
+        what_to_do_now: 'குருத்துப் பகுதியில் வேப்பம்பாண்ணாடை அல்லது சாம்பல் மணல் கலவையை இடவும்.',
+        prevention_guidance: 'இனக்கவர்ச்சி பொறிகளை ஏக்கருக்கு 5 வீதம் வைக்கவும்; பயிர் சுழற்சி முறை பின்பற்றவும்.',
+        when_to_seek_expert: 'குருத்து இலைகளில் 10% மேல் தாக்குதல் காணப்பட்டால் வேளாண் அலுவலரை தொடர்பு கொள்ளவும்.',
+        organic: 'மெட்டாரைசியம் அனிசோப்ளிகே 5 கிராம் / லிட்டர் தண்ணீரைக் கொண்டு குருத்தில் தெளிக்கவும்.',
+        chemical: 'எமாமெக்டின் பென்சோயேட் 0.4 கிராம் / லிட்டர் தண்ணீரில் கலந்து குருத்துப் பகுதியில் தெளிக்கவும்.',
+        cultural: 'குருத்துகளில் மணல் அல்லது மரச்சாம்பல் இடவும்.'
+      }
+    }
+  },
+  {
+    crop: 'Rice',
+    condition: 'Bacterial Leaf Blight (BLB)',
+    scientific_name: 'Xanthomonas oryzae pv. oryzae',
+    status: 'Early Signs',
+    base_severity: 24.5,
+    advisory: {
+      en: {
+        symptoms: 'Water-soaked lesions on leaf margins turning yellow to straw-colored with wavy edges.',
+        what_it_means: 'Bacterial pathogen entering through natural openings or wounds during humid weather.',
+        what_to_do_now: 'Drain excess standing water from the field and suspend nitrogen top-dressing.',
+        prevention_guidance: 'Ensure 30cm spacing, avoid flood irrigation from infected plots, and use resistant varieties.',
+        when_to_seek_expert: 'If lesions cover more than 30% of the upper canopy or milky bacterial ooze appears.',
+        organic: 'Foliar spray of fresh cow dung slurry extract (20%) or Pseudomonas fluorescens @ 10g/L.',
+        chemical: 'Streptocycline 1g + Copper Oxychloride 25g per 10L water in affected patches.',
+        cultural: 'Balance nitrogen with adequate potassium; avoid clipping seedling tips during transplanting.'
+      },
+      ta: {
+        symptoms: 'இலை விளிம்புகளில் நீர் ஊறிய புள்ளிகள் மஞ்சள் நிறமாகி பின் வைக்கோல் நிறத்தில் காய்ந்துவிடும்.',
+        what_it_means: 'அதிக ஈரப்பதத்தின் போது பாக்டீரியா இலைத் துளைகள் வழியே உட்சென்று சேதத்தை ஏற்படுத்துகிறது.',
+        what_to_do_now: 'வயலில் தேங்கியுள்ள தண்ணீரை வடிக்கவும், தழைச்சத்து (யூரியா) இடுவதைத் தற்காலிகமாக நிறுத்தவும்.',
+        prevention_guidance: 'முறையான இடைவெளி விட்டு நடவு செய்யவும், நோய் தாக்கிய வயலின் தண்ணீரை மற்ற வயலுக்கு பாய்ச்ச வேண்டாம்.',
+        when_to_seek_expert: 'மேல் இலைகளில் 30% மேல் கருகல் பரவினால் உடனடியாக வேளாண் அலுவலரை அணுகவும்.',
+        organic: 'சூடோமோனாஸ் ஃப்ளோரசன்ஸ் 10 கிராம் / லிட்டர் அல்லது சாண எரிபொருள் சாறு தெளிக்கவும்.',
+        chemical: 'காப்பர் ஆக்ஸிகுளோரைடு 25 கிராம் + ஸ்ட்ரெப்டோமைசின் 1 கிராம் 10 லிட்டர் நீரில் கலந்து தெளிக்கவும்.',
+        cultural: 'பொட்டாஷ் உரத்தை சரியான அளவில் இடவும்; நாற்றின் நுனியை கிள்ளுவதை தவிர்க்கவும்.'
+      }
+    }
+  },
+  {
     crop: 'Soybean',
     condition: 'Soybean Rust (Asian Rust)',
     scientific_name: 'Phakopsora pachyrhizi',
