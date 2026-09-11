@@ -431,6 +431,8 @@ def predict():
 
         recommendation=recommendation,
 
+        image_url=f"/uploads/{unique_filename}",
+
         image_name=unique_filename
     )
 
@@ -438,6 +440,12 @@ def predict():
 # ============================================================
 # RUN
 # ============================================================
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    from flask import send_from_directory
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 
 if __name__ == "__main__":
 
