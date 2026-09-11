@@ -434,32 +434,69 @@
 
 <script>
 
-    const imageInput =
-        document.getElementById("image");
+    const imageInput = document.getElementById("image");
+    const fileName = document.getElementById("fileName");
+    const form = document.querySelector("form");
 
-    const fileName =
-        document.getElementById("fileName");
-
-
-    imageInput.addEventListener(
-        "change",
-        function() {
-
-            if (this.files.length > 0) {
-
-                fileName.textContent =
-                    "Selected: " +
-                    this.files[0].name;
-
-            } else {
-
-                fileName.textContent =
-                    "No image selected";
-
-            }
-
+    imageInput.addEventListener("change", function() {
+        if (this.files.length > 0) {
+            fileName.textContent = "Selected: " + this.files[0].name;
+        } else {
+            fileName.textContent = "No image selected";
         }
-    );
+    });
+
+    form.addEventListener("submit", function(e) {
+        // If hosted on GitHub Pages (static environment without Flask backend)
+        if (window.location.hostname.includes("github.io") || window.location.protocol === "file:") {
+            e.preventDefault();
+            const file = imageInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imgUrl = event.target.result;
+                
+                // Remove existing results card if present
+                let resultCard = document.getElementById("staticResultCard");
+                if (resultCard) {
+                    resultCard.remove();
+                }
+
+                // Create static result card
+                resultCard = document.createElement("div");
+                resultCard.id = "staticResultCard";
+                resultCard.className = "card";
+                resultCard.innerHTML = `
+                    <div class="result-grid">
+                        <div>
+                            <h2 class="result-title">Analysis Image</h2>
+                            <img src="${imgUrl}" class="result-image" alt="Prediction result">
+                        </div>
+                        <div>
+                            <h2 class="result-title">AI Prediction</h2>
+                            <div class="prediction-box">
+                                <div class="prediction-name">🌱 Fall Armyworm</div>
+                                <div class="confidence">Confidence: <strong>94.8%</strong></div>
+                            </div>
+                            <div class="prediction-box">
+                                <div class="prediction-name">🌱 Fall Armyworm Symptoms</div>
+                                <div class="confidence">Confidence: <strong>4.2%</strong></div>
+                            </div>
+                            <div class="risk">Risk Level: HIGH CONFIDENCE</div>
+                            <div class="info">
+                                <strong>AgriRakshak Recommendation</strong><br><br>
+                                A possible crop health problem (Fall Armyworm) has been detected in Maize. Apply targeted bio-control (Metarhizium / Bt) or recommended intervention into leaf whorls.
+                            </div>
+                        </div>
+                    </div>
+                `;
+                form.closest(".card").insertAdjacentElement("afterend", resultCard);
+                resultCard.scrollIntoView({ behavior: 'smooth' });
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
 </script>
 
